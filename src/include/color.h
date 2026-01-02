@@ -89,3 +89,8 @@ static std::string color_yellow()
 {
     return color_code(Color::FG_BRIGHT_YELLOW);
 }
+
+static std::string color_orange()
+{
+    return color_code(Color::FG_YELLOW);
+}
