@@ -84,4 +84,7 @@ public:
     void distribute_work(const string &charset, int length, const string &target_hash);
     void crack(const string &charset, int length, const string &target_hash);
 
+    // Monitoring thread
+    void monitor_progress(const string &target_hash);
+
 };
