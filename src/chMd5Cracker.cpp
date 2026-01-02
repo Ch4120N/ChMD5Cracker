@@ -221,7 +221,7 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
     global_start_time = steady_clock::now();
 
     // Start monitoring thread
-    thread monitor_thread(&Ch4120N_Md5_Hash_Cracker::monitor_progress, this, target_hash);
+    thread monitor_thread(&Ch4120N_MD5_HASH_CRACKER::monitor_progress, this, target_hash);
 
     // Perform cracking for each length
     for (int length = min_len; length <= max_len; length++)
@@ -248,6 +248,13 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         //     cout << InfoMessage("Bruteforcing done with ") << color_code(Color::FG_BRIGHT_GREEN) << length << color_code(Color::FG_WHITE) << " characters. " << color_code(Color::FG_BRIGHT_RED) << "No Results." << endl;
         // }
     }
+
+    // Stop the thread pool
+    {
+        lock_guard<mutex> lock(queue_mutex);
+        stop_pool = true;
+    }
+    condition.notify_all();
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
