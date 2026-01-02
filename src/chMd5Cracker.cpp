@@ -63,5 +63,6 @@ private:
 public:
     Ch4120N_Md5_Hash_Cracker(int argc, char *argv[]);
     ~Ch4120N_Md5_Hash_Cracker();
-
+    
+    void print_banner();
 };
