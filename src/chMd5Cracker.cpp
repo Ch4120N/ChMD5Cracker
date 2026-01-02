@@ -178,7 +178,10 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
 
     charset = std::move(clean_charset);
 
-    
+    if (charset.empty())
+    {
+        usage();
+    }
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
