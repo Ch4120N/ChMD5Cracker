@@ -75,5 +75,13 @@ public:
     template <class F>
     auto enqueue(F &&f) -> future<decltype(f())>;
 
-    
+    // Cracking methods
+    void crack_range(const string &charset, int length, const string &target_hash,
+                     size_t start_idx, size_t end_idx, int thread_id);
+    void generate_combinations_range(const string &charset, string &current, int length,
+                                     int pos, const string &target_hash, int thread_id,
+                                     size_t start_char, size_t end_char);
+    void distribute_work(const string &charset, int length, const string &target_hash);
+    void crack(const string &charset, int length, const string &target_hash);
+
 };
