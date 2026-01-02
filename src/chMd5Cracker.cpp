@@ -303,8 +303,8 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
     }
 }
 
-    unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
-    {
+unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
+{
         unsigned int cores = thread::hardware_concurrency();
 
         if (cores == 0)
