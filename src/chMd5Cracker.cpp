@@ -428,3 +428,13 @@ void Ch4120N_MD5_HASH_CRACKER::usage()
 
     exit(1);
 }
+
+void Ch4120N_MD5_HASH_CRACKER::print_verbose(const string &password, const string &hash_result,
+                                             const string &target_hash, int hashes_per_sec)
+{
+    cout << ProgressMessage(color_code(Color::FG_WHITE) +
+                            target_hash + color_code(Color::FG_BRIGHT_MAGENTA) + " => " +
+                            color_code(Color::FG_BRIGHT_GREEN) + hash_result + color_code(Color::FG_BRIGHT_MAGENTA) +
+                            " => " + color_code(Color::FG_BRIGHT_GREEN) + password + color_code(Color::FG_WHITE) + " | Speed: " + color_code(Color::FG_BRIGHT_GREEN) + to_string(hashes_per_sec) + " hashes/sec.");
+    cout.flush();
+}
