@@ -14,3 +14,8 @@ std::string InfoMessage(const std::string RequestMessage, Color color = Color::F
 {
     return color_code(Color::FG_BRIGHT_CYAN) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "*" + color_code(Color::FG_BRIGHT_CYAN) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
 }
+
+std::string WarningMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
+{
+    return color_code(Color::FG_YELLOW) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "!" + color_code(Color::FG_YELLOW) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+}
