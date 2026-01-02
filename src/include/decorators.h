@@ -29,3 +29,8 @@ std::string TipMessage(const std::string RequestMessage, Color color = Color::FG
 {
     return color_code(Color::FG_BRIGHT_MAGENTA) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "!" + color_code(Color::FG_BRIGHT_MAGENTA) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
 }
+
+std::string ProgressMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
+{
+    return color_code(Color::FG_BRIGHT_MAGENTA) + "\r [ " + color_code(Color::FG_BRIGHT_WHITE) + ">" + color_code(Color::FG_BRIGHT_MAGENTA) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+}
