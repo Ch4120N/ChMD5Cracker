@@ -36,5 +36,29 @@ using namespace chrono;
 
 
 class Ch4120N_MD5_HASH_CRACKER{
+private:
+    const int dbgtmr = 1;
+    bool verbose_mode = false;
+    string charset = "";
+    int min_len, max_len;
+    MD5 md5_hex;
+
+    // Thread pool and synchronization
+    vector<thread> workers;
+    queue<function<void()>> tasks;
+    mutex queue_mutex;
+    condition_variable condition;
+    atomic<bool> stop_pool{false};
+    atomic<long long> total_counter{0};
+    atomic<bool> password_found{false};
+    mutex found_mutex;
+    string found_password;
+
+    // Timing
+    steady_clock::time_point global_start_time;
+
+    // Thread management
+    unsigned int num_threads;
+
     
 };
