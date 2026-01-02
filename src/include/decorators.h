@@ -4,3 +4,8 @@ std::string FailMessage(const std::string RequestMessage, Color color = Color::F
 {
     return color_code(Color::FG_BRIGHT_RED) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "-" + color_code(Color::FG_BRIGHT_RED) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
 }
+
+std::string PassMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
+{
+    return color_code(Color::FG_BRIGHT_GREEN) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "+" + color_code(Color::FG_BRIGHT_GREEN) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+}
