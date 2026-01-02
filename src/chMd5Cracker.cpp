@@ -214,3 +214,15 @@ auto Ch4120N_MD5_HASH_CRACKER::enqueue(F &&f) -> future<decltype(f())>
     return res;
 }
 
+Ch4120N_MD5_HASH_CRACKER::~Ch4120N_MD5_HASH_CRACKER()
+{
+    stop_pool = true;
+    condition.notify_all();
+    for (thread &worker : workers)
+    {
+        if (worker.joinable())
+        {
+            worker.join();
+        }
+    }
+}
