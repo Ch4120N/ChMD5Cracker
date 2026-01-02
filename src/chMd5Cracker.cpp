@@ -116,3 +116,40 @@ int main(int argc, char **argv)
     return 0;
 }
 
+unsigned int Ch4120N_Md5_Hash_Cracker::get_cpu_cores()
+{
+    unsigned int cores = thread::hardware_concurrency();
+
+    if (cores == 0)
+    {
+// Fallback methods if hardware_concurrency() returns 0
+#ifdef _WIN32
+        SYSTEM_INFO sysinfo;
+        GetSystemInfo(&sysinfo);
+        cores = sysinfo.dwNumberOfProcessors;
+#elif defined(__linux__)
+        cores = sysconf(_SC_NPROCESSORS_ONLN);
+#elif defined(__APPLE__)
+        cores = sysconf(_SC_NPROCESSORS_ONLN);
+#else
+        cores = 4; // Default fallback
+#endif
+    }
+
+    // Use logical processors (hyper-threading) for maximum performance
+    cout << InfoMessage("CPU Cores detected: ") << color_code(Color::FG_BRIGHT_GREEN) << cores << endl;
+
+    // Adjust based on system capability
+    if (cores >= 8)
+    {
+        return cores; // Use all cores on powerful systems
+    }
+    else if (cores >= 4)
+    {
+        return cores; // Use all cores on mid-range systems
+    }
+    else
+    {
+        return max(2u, cores); // At least 2 threads on low-end systems
+    }
+}
