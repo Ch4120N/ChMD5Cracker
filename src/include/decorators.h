@@ -2,35 +2,35 @@
 
 std::string FailMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
 {
-    return color_red() + " [ " + color_bwhite() + "-" + color_red() + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+    return color_red() + " [ " + color_bwhite() + "-" + color_red() + " ] " + color_code(color) + RequestMessage + reset();
 }
 
 std::string PassMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
 {
-    return color_code(Color::FG_BRIGHT_GREEN) + " [ " + color_bwhite() + "+" + color_code(Color::FG_BRIGHT_GREEN) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+    return color_green() + " [ " + color_bwhite() + "+" + color_green() + " ] " + color_code(color) + RequestMessage + reset();
 }
 
 std::string InfoMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
 {
-    return color_code(Color::FG_BRIGHT_CYAN) + " [ " + color_bwhite() + "*" + color_code(Color::FG_BRIGHT_CYAN) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+    return color_cyan() + " [ " + color_bwhite() + "*" + color_cyan() + " ] " + color_code(color) + RequestMessage + reset();
 }
 
 std::string WarningMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
 {
-    return color_code(Color::FG_YELLOW) + " [ " + color_bwhite() + "!" + color_code(Color::FG_YELLOW) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+    return color_orange() + " [ " + color_bwhite() + "!" + color_orange() + " ] " + color_code(color) + RequestMessage + reset();
 }
 
 std::string DoubleWarningMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
 {
-    return color_code(Color::FG_YELLOW) + " [ " + color_bwhite() + "!" + color_code(Color::FG_YELLOW) + " ] " + color_code(color) + RequestMessage + color_code(Color::FG_YELLOW) + " [ " + color_bwhite() + "!" + color_code(Color::FG_YELLOW) + " ] " + color_code(Color::RESET);
+    return color_orange() + " [ " + color_bwhite() + "!" + color_orange() + " ] " + color_code(color) + RequestMessage + color_orange() + " [ " + color_bwhite() + "!" + color_orange() + " ] " + reset();
 }
 
 std::string TipMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
 {
-    return color_code(Color::FG_BRIGHT_MAGENTA) + " [ " + color_bwhite() + "!" + color_code(Color::FG_BRIGHT_MAGENTA) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+    return color_magenta() + " [ " + color_bwhite() + "!" + color_magenta() + " ] " + color_code(color) + RequestMessage + reset();
 }
 
 std::string ProgressMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
 {
-    return color_code(Color::FG_BRIGHT_MAGENTA) + "\r [ " + color_bwhite() + ">" + color_code(Color::FG_BRIGHT_MAGENTA) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+    return color_magenta() + "\r [ " + color_bwhite() + ">" + color_magenta() + " ] " + color_code(color) + RequestMessage + reset();
 }
