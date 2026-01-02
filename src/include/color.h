@@ -59,3 +59,9 @@ static std::string color_code(Color color)
 static std::string color_white(){
     return color_code(Color::FG_WHITE);
 }
+
+static std::string color_green()
+{
+    return color_code(Color::FG_BRIGHT_GREEN);
+}
+
