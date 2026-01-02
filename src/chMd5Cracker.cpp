@@ -326,3 +326,13 @@ void Ch4120N_MD5_HASH_CRACKER::generate_combinations_range(const string &charset
         }
     }
 }
+
+void Ch4120N_MD5_HASH_CRACKER::crack_range(const string &charset, int length, const string &target_hash,
+                                           size_t start_idx, size_t end_idx, int thread_id)
+{
+    if (start_idx >= end_idx || password_found.load())
+        return;
+
+    string current(length, ' ');
+    generate_combinations_range(charset, current, length, 0, target_hash, thread_id, start_idx, end_idx);
+}
