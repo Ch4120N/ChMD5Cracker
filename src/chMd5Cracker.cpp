@@ -67,4 +67,6 @@ public:
     void print_banner();
     void usage();
     void print_verbose(const string &password, const string &hash_result, const string &target_hash, int hashes_per_sec);
+    bool check_hash(const string &password, const string &target_hash, int thread_id);
+    
 };
