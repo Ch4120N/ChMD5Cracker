@@ -61,9 +61,9 @@ private:
     unsigned int num_threads;
 
 public:
-    Ch4120N_Md5_Hash_Cracker(int argc, char *argv[]);
-    ~Ch4120N_Md5_Hash_Cracker();
-    
+    Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[]);
+    ~Ch4120N_MD5_HASH_CRACKER();
+
     void print_banner();
     void usage();
     void print_verbose(const string &password, const string &hash_result, const string &target_hash, int hashes_per_sec);
