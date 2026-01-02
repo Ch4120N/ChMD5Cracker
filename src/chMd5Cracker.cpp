@@ -270,6 +270,37 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
     {
         monitor_thread.join();
     }
+
+    cout << color_code(Color::FG_WHITE) << "\n\n "
+         << string(40, '-') << endl;
+    cout << color_code(Color::FG_WHITE) << "   +---" << color_code(Color::FG_BRIGHT_RED) << "[ " << color_code(Color::FG_BRIGHT_GREEN) << "CH4120N MD5 Hash Cracker" << color_code(Color::FG_BRIGHT_RED) << " ]" << color_code(Color::FG_WHITE) << "---+" << endl;
+    cout << color_code(Color::FG_BRIGHT_CYAN) << "          Multi-Threaded Version" << endl;
+    cout << color_code(Color::FG_BRIGHT_GREEN) << "          Powered By " << color_code(Color::FG_BRIGHT_BLUE) << "[ " << color_code(Color::FG_BRIGHT_RED) << "CH4120N" << color_code(Color::FG_BRIGHT_BLUE) << " ]" << endl;
+    cout << color_code(Color::FG_WHITE) << " " << string(40, '-') << endl;
+
+    if (password_found.load())
+    {
+        cout << PassMessage("PASSWORD CRACKED SUCCESSFULLY!", Color::FG_BRIGHT_GREEN) << endl;
+        cout << PassMessage("Target Hash: ", Color::FG_BRIGHT_GREEN) << color_code(Color::FG_BRIGHT_MAGENTA) << target_hash << endl;
+        cout << PassMessage("Password: ", Color::FG_BRIGHT_GREEN) << color_code(Color::FG_BRIGHT_RED) << found_password << endl;
+
+        auto end_time = steady_clock::now();
+        auto duration = duration_cast<seconds>(end_time - global_start_time);
+        cout << PassMessage("Time elapsed: ", Color::FG_BRIGHT_GREEN) << color_code(Color::FG_WHITE) << duration.count() << color_code(Color::FG_BRIGHT_GREEN) << " seconds" << endl;
+
+        cout << PassMessage("Cracking process completed.", Color::FG_BRIGHT_GREEN) << endl;
+        exit(0);
+    }
+    else
+    {
+        cout << FailMessage("Password not found within given parameters.", Color::FG_BRIGHT_RED) << endl;
+
+        auto end_time = steady_clock::now();
+        auto duration = duration_cast<seconds>(end_time - global_start_time);
+        cout << InfoMessage("Total time: ") << color_code(Color::FG_BRIGHT_GREEN) << duration.count() << color_code(Color::FG_WHITE) << " seconds" << color_code(Color::RESET) << endl;
+
+        exit(1);
+    }
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
