@@ -255,6 +255,15 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         stop_pool = true;
     }
     condition.notify_all();
+
+    // Wait for all workers
+    for (thread &worker : workers)
+    {
+        if (worker.joinable())
+        {
+            worker.join();
+        }
+    }
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
