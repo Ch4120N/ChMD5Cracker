@@ -74,3 +74,8 @@ static std::string color_blue()
 {
     return color_code(Color::FG_BRIGHT_BLUE);
 }
+
+static std::string color_cyan()
+{
+    return color_code(Color::FG_BRIGHT_CYAN);
+}
