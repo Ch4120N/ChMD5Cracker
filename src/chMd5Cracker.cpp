@@ -227,7 +227,7 @@ Ch4120N_MD5_HASH_CRACKER::~Ch4120N_MD5_HASH_CRACKER()
     }
 }
 
-void Ch4120N_Md5_Hash_Cracker::monitor_progress(const string &target_hash)
+void Ch4120N_MD5_HASH_CRACKER::monitor_progress(const string &target_hash)
 {
     auto last_print_time = steady_clock::now();
 
