@@ -84,4 +84,10 @@ private:
         h3 += d;
     }
 
+public:
+    MD5()
+    {
+        
+    }
+
 };
