@@ -50,6 +50,7 @@ enum class Color
     REVERSED = 7
 };
 
+// Get ANSI escape sequence
 static std::string color_code(Color color)
 {
     return "\033[" + std::to_string(static_cast<int>(color)) + "m";
