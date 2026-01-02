@@ -217,6 +217,8 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
 
     // Initialize thread pool
     init_thread_pool();
+
+    global_start_time = steady_clock::now();
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
