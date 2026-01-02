@@ -7,7 +7,7 @@
 ###############################################################################
 
 #########################################
-#### Charon MD5 Hash Cracker ######
+#### Ch4120N MD5 Hash Cracker ######
 #### Powered By Ch4120N ####
 #########################################
 
@@ -30,7 +30,7 @@ signal.signal(signal.SIGINT, exit_on_sigint)
 def usage():
     return """
  ##############################################################################
- # Charon MD5 Hash Cracker                                                    #
+ # Ch4120N MD5 Hash Cracker                                                   #
  #                                                                            #
  # Usage: python chMd5Cracker.py <setChar> <minChar> <maxChar> <hashMD5>      #
  # Character options: a - small letters # a,b,c                               #
