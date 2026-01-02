@@ -56,3 +56,6 @@ static std::string color_code(Color color)
     return "\033[" + std::to_string(static_cast<int>(color)) + "m";
 }
 
+static std::string color_white(){
+    return color_code(Color::FG_WHITE);
+}
