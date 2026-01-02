@@ -88,3 +88,18 @@ public:
     void monitor_progress(const string &target_hash);
 
 };
+
+// Thread-safe wrapper for MD5
+class ThreadSafeMD5
+{
+private:
+    MD5 md5;
+    mutex mtx;
+
+public:
+    string hash(const string &str)
+    {
+        lock_guard<mutex> lock(mtx);
+        return md5.hash(str);
+    }
+};
