@@ -385,3 +385,46 @@ void Ch4120N_MD5_HASH_CRACKER::print_banner()
     cout << endl
          << color_code(Color::RESET);
 }
+
+void Ch4120N_MD5_HASH_CRACKER::usage()
+{
+    // ----------------------- PREVIOUSE VERSION BANNER -------------------------------------------
+    // cout << "\n";
+    // cout << " #############################################################################\n";
+    // cout << " # CH4120N MD5 Hash Cracker - Powerful MD5 Hash Cracking Tool                #\n";
+    // cout << " # Owner: CH4120N                                                            #\n";
+    // cout << " # Version: Multi-Threaded v2.0                                              #\n";
+    // cout << " #                                                                           #\n";
+    // cout << " # Usage: ./chMd5Cracker <setChar> <minChar> <maxChar> <hashMD5>             #\n";
+    // cout << " # Character options: a - small letters   # a,b,c                            #\n";
+    // cout << " #                    A - big letters     # A,B,C                            #\n";
+    // cout << " #                    n - numbers         # 1,2,3                            #\n";
+    // cout << " #                    s - symbols         # !,#,@                            #\n";
+    // cout << " #                    v - verbose mode    # Show detailed progress           #\n";
+    // cout << " #                                                                           #\n";
+    // cout << " # Example: ./chMd5Cracker aAnsv 1 4 9bd4f3afae4f32050d2b0e467c9fb8ef        #\n";
+    // cout << " #                                                                           #\n";
+    // cout << " #############################################################################\n";
+
+    cout << color_code(Color::FG_WHITE) << " USAGE: ./chMd5Cracker <setChar> <minChar> <maxChar> <hashMD5>\n\n";
+    cout << " CHARACTER SET OPTIONS:\n";
+    cout << "\ta\t- Lowercase letters\t| a, b, c, ..., z\n";
+    cout << "\tA\t- Uppercase letters\t| A, B, C, ..., Z\n";
+    cout << "\tn\t- Numbers\t| 0, 1, 2, ..., 9\n";
+    cout << "\ts\t- Special symbols\t| !, @, #, $, %, ...\n";
+    cout << "\tm\t- Mixed case\t| a-z, A-Z\n";
+    cout << "\tv\t- Verbose mode\t| Detailed progress\n\n";
+    cout << " EXAMPLES:\n";
+    cout << "\tBasic (4-char lowercase + numbers):\n";
+    cout << "\t    ./chMd5Cracker an 4 6 5f4dcc3b5aa765d61d8327deb882cf99\n\n";
+    cout << "\tAdvanced (all chars, 1-8 length, verbose):\n";
+    cout << "\t    ./chMd5Cracker aAnsv 1 8 e99a18c428cb38d5f260853678922e03\n\n";
+    cout << " NOTES:\n";
+    cout << "\t- High-performance tool. Use responsibly!\n";
+    cout << "\t- Estimated speed: 500K-2M hashes/sec (depending on CPU)\n";
+    cout << "\t- Quick Tip: Combine character sets for better results (e.g., 'aAn' for alphanumeric)\n";
+    cout << "\t- Press Ctrl+C to Stop the opration!\n"
+         << color_code(Color::RESET);
+
+    exit(1);
+}
