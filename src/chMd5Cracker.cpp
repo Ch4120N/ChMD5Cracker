@@ -65,4 +65,5 @@ public:
     ~Ch4120N_Md5_Hash_Cracker();
     
     void print_banner();
+    void usage();
 };
