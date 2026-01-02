@@ -198,6 +198,13 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         usage();
     }
 
+    string target_hash = args[3];
+
+    for (char &c : target_hash)
+    {
+        c = tolower(c);
+    }
+
     
 }
 
