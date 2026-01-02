@@ -336,3 +336,34 @@ void Ch4120N_MD5_HASH_CRACKER::crack_range(const string &charset, int length, co
     string current(length, ' ');
     generate_combinations_range(charset, current, length, 0, target_hash, thread_id, start_idx, end_idx);
 }
+
+void Ch4120N_MD5_HASH_CRACKER::distribute_work(const string &charset, int length, const string &target_hash)
+{
+    // Distribute first character among threads
+    size_t charset_size = charset.size();
+    size_t chars_per_thread = charset_size / num_threads;
+    size_t remainder = charset_size % num_threads;
+
+    vector<future<void>> futures;
+
+    size_t start = 0;
+    for (unsigned int i = 0; i < num_threads; ++i)
+    {
+        size_t end = start + chars_per_thread + (i < remainder ? 1 : 0);
+
+        if (start < charset_size)
+        {
+            futures.emplace_back(
+                enqueue([this, charset, length, target_hash, start, end, i]()
+                        { this->crack_range(charset, length, target_hash, start, end, i); }));
+        }
+
+        start = end;
+    }
+
+    // Wait for all tasks to complete
+    for (auto &future : futures)
+    {
+        future.wait();
+    }
+}
