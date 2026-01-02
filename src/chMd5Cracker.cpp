@@ -226,3 +226,28 @@ Ch4120N_MD5_HASH_CRACKER::~Ch4120N_MD5_HASH_CRACKER()
         }
     }
 }
+
+void Ch4120N_Md5_Hash_Cracker::monitor_progress(const string &target_hash)
+{
+    auto last_print_time = steady_clock::now();
+
+    while (!password_found.load() && !stop_pool)
+    {
+        this_thread::sleep_for(chrono::seconds(1));
+
+        auto current_time = steady_clock::now();
+        auto elapsed = duration_cast<seconds>(current_time - global_start_time).count();
+
+        if (!verbose_mode && elapsed >= dbgtmr && current_time - last_print_time >= chrono::seconds(dbgtmr))
+        {
+            auto local_counter = total_counter.exchange(0);
+            double hashes_per_sec = local_counter / dbgtmr;
+
+            cout << ProgressMessage("Speed: ") << color_code(Color::FG_BRIGHT_GREEN) << static_cast<int>(hashes_per_sec)
+                 << " hashes/sec" << color_code(Color::FG_WHITE) << " | Total: " << color_code(Color::FG_BRIGHT_GREEN) << elapsed << " secs";
+            cout.flush();
+
+            last_print_time = current_time;
+        }
+    }
+}
