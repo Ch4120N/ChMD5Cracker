@@ -372,3 +372,16 @@ void Ch4120N_MD5_HASH_CRACKER::crack(const string &charset, int length, const st
 {
     distribute_work(charset, length, target_hash);
 }
+
+void Ch4120N_MD5_HASH_CRACKER::print_banner()
+{
+    cout << color_code(Color::FG_BRIGHT_RED) << "  ___  _   _  __  __  ____   ___   ___  ____    __    ___  _  _  ____  ____ \n";
+    cout << " / __)( )_( )(  \\/  )(  _ \\ | __) / __)(  _ \\  /__\\  / __)( )/ )( ___)(  _ \\\n";
+    cout << "( (__  ) _ (  )    (  )(_) )|__ \\( (__  )   / /(__)\\( (__  )  (  )__)  )   /\n";
+    cout << " \\___)(_) (_)(_/\\/\\_)(____/ (___/ \\___)(_)\\_)(__)(__)\\___)(_)\\_)(____)(_)\\_)\n\n";
+    cout << color_code(Color::FG_BRIGHT_GREEN) << "                         POWERED BY Ch4120N" << endl;
+    cout << color_code(Color::FG_BRIGHT_WHITE) << "                     MULTI-THREADED EDITION v2.0" << endl;
+    cout << color_code(Color::FG_BRIGHT_BLUE) << "                     https://GitHub.com/Ch4120N" << endl;
+    cout << endl
+         << color_code(Color::RESET);
+}
