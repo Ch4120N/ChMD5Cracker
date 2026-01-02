@@ -4,3 +4,6 @@
 #include <sstream>
 #include <iomanip>
 
+class MD5{
+
+};
