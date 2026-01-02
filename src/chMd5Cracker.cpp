@@ -205,6 +205,12 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         c = tolower(c);
     }
 
+    if (target_hash.length() != 32)
+    {
+        cout << FailMessage("Sorry but it seems that the MD5 is not valid!", Color::FG_BRIGHT_RED) << endl;
+        return;
+    }
+
     
 }
 
