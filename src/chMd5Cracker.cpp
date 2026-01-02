@@ -223,7 +223,31 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
     // Start monitoring thread
     thread monitor_thread(&Ch4120N_Md5_Hash_Cracker::monitor_progress, this, target_hash);
 
-    
+    // Perform cracking for each length
+    for (int length = min_len; length <= max_len; length++)
+    {
+        if (password_found.load())
+            break;
+
+        // cout << endl
+        //      << InfoMessage("Trying passwords with ") << color_code(Color::FG_BRIGHT_GREEN) << length << color_code(Color::FG_WHITE) << " characters..." << endl;
+
+        // Calculate total combinations for this length
+        // size_t total_combinations = 1;
+        // for (int i = 0; i < length; i++)
+        // {
+        //     total_combinations *= charset.size();
+        // }
+        // cout << InfoMessage("Total combinations: ") << color_code(Color::FG_BRIGHT_GREEN) << total_combinations << color_code(Color::FG_WHITE) << endl;
+
+        // Distribute work across threads
+        distribute_work(charset, length, target_hash);
+
+        // if (!password_found.load())
+        // {
+        //     cout << InfoMessage("Bruteforcing done with ") << color_code(Color::FG_BRIGHT_GREEN) << length << color_code(Color::FG_WHITE) << " characters. " << color_code(Color::FG_BRIGHT_RED) << "No Results." << endl;
+        // }
+    }
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
