@@ -98,4 +98,52 @@ public:
         h3 = 0x10325476;
     }
 
+    std::string hash(const std::string &input)
+    {
+        reset();
+
+        uint64 inputLen = input.length();
+        uint64 bitsLen = inputLen * 8;
+
+        // Padding
+        uint64 paddedLen = ((inputLen + 8) / 64 + 1) * 64;
+        uint8 *padded = new uint8[paddedLen];
+        memcpy(padded, input.c_str(), inputLen);
+        padded[inputLen] = 0x80;
+
+        for (uint64 i = inputLen + 1; i < paddedLen - 8; i++)
+        {
+            padded[i] = 0;
+        }
+
+        // Append length
+        for (int i = 0; i < 8; i++)
+        {
+            padded[paddedLen - 8 + i] = (uint8)(bitsLen >> (i * 8));
+        }
+
+        // Process blocks
+        for (uint64 i = 0; i < paddedLen; i += 64)
+        {
+            processBlock(padded + i);
+        }
+
+        delete[] padded;
+
+        // Convert to hex string
+        uint8 digest[16];
+        toBytes(h0, digest);
+        toBytes(h1, digest + 4);
+        toBytes(h2, digest + 8);
+        toBytes(h3, digest + 12);
+
+        std::stringstream ss;
+        ss << std::hex << std::setfill('0');
+        for (int i = 0; i < 16; i++)
+        {
+            ss << std::setw(2) << (int)digest[i];
+        }
+
+        return ss.str();
+    }
 };
