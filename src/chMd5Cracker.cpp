@@ -211,9 +211,9 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         return;
     }
 
-    cout << InfoMessage("Selected charset for attack: '") << color_code(Color::FG_BRIGHT_GREEN) << charset << color_code(Color::FG_WHITE) << "'" << std::endl;
-    cout << InfoMessage("Target Hash: '") << color_code(Color::FG_BRIGHT_GREEN) << target_hash << color_code(Color::FG_WHITE) << "'" << std::endl;
-    cout << InfoMessage("Length range: ") << color_code(Color::FG_BRIGHT_GREEN) << min_len << color_code(Color::FG_WHITE) << " to " << color_code(Color::FG_BRIGHT_GREEN) << max_len << color_code(Color::FG_WHITE) << " characters" << std::endl;
+    cout << InfoMessage("Selected charset for attack: '") << color_green() << charset << color_white() << "'" << std::endl;
+    cout << InfoMessage("Target Hash: '") << color_green() << target_hash << color_white() << "'" << std::endl;
+    cout << InfoMessage("Length range: ") << color_green() << min_len << color_white() << " to " << color_green() << max_len << color_white() << " characters" << std::endl;
 
     // Initialize thread pool
     init_thread_pool();
@@ -230,7 +230,7 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
             break;
 
         // cout << endl
-        //      << InfoMessage("Trying passwords with ") << color_code(Color::FG_BRIGHT_GREEN) << length << color_code(Color::FG_WHITE) << " characters..." << endl;
+        //      << InfoMessage("Trying passwords with ") << color_green() << length << color_white() << " characters..." << endl;
 
         // Calculate total combinations for this length
         // size_t total_combinations = 1;
@@ -238,14 +238,14 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         // {
         //     total_combinations *= charset.size();
         // }
-        // cout << InfoMessage("Total combinations: ") << color_code(Color::FG_BRIGHT_GREEN) << total_combinations << color_code(Color::FG_WHITE) << endl;
+        // cout << InfoMessage("Total combinations: ") << color_green() << total_combinations << color_white() << endl;
 
         // Distribute work across threads
         distribute_work(charset, length, target_hash);
 
         // if (!password_found.load())
         // {
-        //     cout << InfoMessage("Bruteforcing done with ") << color_code(Color::FG_BRIGHT_GREEN) << length << color_code(Color::FG_WHITE) << " characters. " << color_code(Color::FG_BRIGHT_RED) << "No Results." << endl;
+        //     cout << InfoMessage("Bruteforcing done with ") << color_green() << length << color_white() << " characters. " << color_red() << "No Results." << endl;
         // }
     }
 
@@ -271,22 +271,22 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         monitor_thread.join();
     }
 
-    cout << color_code(Color::FG_WHITE) << "\n\n "
+    cout << color_white() << "\n\n "
          << string(40, '-') << endl;
-    cout << color_code(Color::FG_WHITE) << "   +---" << color_code(Color::FG_BRIGHT_RED) << "[ " << color_code(Color::FG_BRIGHT_GREEN) << "CH4120N MD5 Hash Cracker" << color_code(Color::FG_BRIGHT_RED) << " ]" << color_code(Color::FG_WHITE) << "---+" << endl;
+    cout << color_white() << "   +---" << color_red() << "[ " << color_green() << "CH4120N MD5 Hash Cracker" << color_red() << " ]" << color_white() << "---+" << endl;
     cout << color_code(Color::FG_BRIGHT_CYAN) << "          Multi-Threaded Version" << endl;
-    cout << color_code(Color::FG_BRIGHT_GREEN) << "          Powered By " << color_code(Color::FG_BRIGHT_BLUE) << "[ " << color_code(Color::FG_BRIGHT_RED) << "CH4120N" << color_code(Color::FG_BRIGHT_BLUE) << " ]" << endl;
-    cout << color_code(Color::FG_WHITE) << " " << string(40, '-') << endl;
+    cout << color_green() << "          Powered By " << color_blue() << "[ " << color_red() << "CH4120N" << color_blue() << " ]" << endl;
+    cout << color_white() << " " << string(40, '-') << endl;
 
     if (password_found.load())
     {
         cout << PassMessage("PASSWORD CRACKED SUCCESSFULLY!", Color::FG_BRIGHT_GREEN) << endl;
-        cout << PassMessage("Target Hash: ", Color::FG_BRIGHT_GREEN) << color_code(Color::FG_BRIGHT_MAGENTA) << target_hash << endl;
-        cout << PassMessage("Password: ", Color::FG_BRIGHT_GREEN) << color_code(Color::FG_BRIGHT_RED) << found_password << endl;
+        cout << PassMessage("Target Hash: ", Color::FG_BRIGHT_GREEN) << color_magenta() << target_hash << endl;
+        cout << PassMessage("Password: ", Color::FG_BRIGHT_GREEN) << color_red() << found_password << endl;
 
         auto end_time = steady_clock::now();
         auto duration = duration_cast<seconds>(end_time - global_start_time);
-        cout << PassMessage("Time elapsed: ", Color::FG_BRIGHT_GREEN) << color_code(Color::FG_WHITE) << duration.count() << color_code(Color::FG_BRIGHT_GREEN) << " seconds" << endl;
+        cout << PassMessage("Time elapsed: ", Color::FG_BRIGHT_GREEN) << color_white() << duration.count() << color_green() << " seconds" << endl;
 
         cout << PassMessage("Cracking process completed.", Color::FG_BRIGHT_GREEN) << endl;
         exit(0);
@@ -297,7 +297,7 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
 
         auto end_time = steady_clock::now();
         auto duration = duration_cast<seconds>(end_time - global_start_time);
-        cout << InfoMessage("Total time: ") << color_code(Color::FG_BRIGHT_GREEN) << duration.count() << color_code(Color::FG_WHITE) << " seconds" << color_code(Color::RESET) << endl;
+        cout << InfoMessage("Total time: ") << color_green() << duration.count() << color_white() << " seconds" << reset()<< endl;
 
         exit(1);
     }
@@ -324,7 +324,7 @@ unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
     }
 
     // Use logical processors (hyper-threading) for maximum performance
-    cout << InfoMessage("CPU Cores detected: ") << color_code(Color::FG_BRIGHT_GREEN) << cores << endl;
+    cout << InfoMessage("CPU Cores detected: ") << color_green() << cores << endl;
 
     // Adjust based on system capability
     if (cores >= 8)
@@ -344,7 +344,7 @@ unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
 void Ch4120N_MD5_HASH_CRACKER::init_thread_pool()
 {
     num_threads = get_cpu_cores();
-    cout << InfoMessage("Initializing thread pool with " + to_string(num_threads) + " workers") << endl;
+    cout << InfoMessage("Initializing thread pool with " + color_green() + to_string(num_threads) + color_white() + " workers") << endl;
     // cout << "[ * ] Initializing thread pool with " << num_threads << " workers" << endl;
 
     // Start worker threads
@@ -430,8 +430,8 @@ void Ch4120N_MD5_HASH_CRACKER::monitor_progress(const string &target_hash)
             auto local_counter = total_counter.exchange(0);
             double hashes_per_sec = local_counter / dbgtmr;
 
-            cout << ProgressMessage("Speed: ") << color_code(Color::FG_BRIGHT_GREEN) << static_cast<int>(hashes_per_sec)
-                 << " hashes/sec" << color_code(Color::FG_WHITE) << " | Total: " << color_code(Color::FG_BRIGHT_GREEN) << elapsed << " secs";
+            cout << ProgressMessage("Speed: ") << color_green() << static_cast<int>(hashes_per_sec)
+                 << " hashes/sec" << color_white() << " | Total: " << color_green() << elapsed << " secs";
             cout.flush();
 
             last_print_time = current_time;
@@ -562,15 +562,15 @@ void Ch4120N_MD5_HASH_CRACKER::crack(const string &charset, int length, const st
 
 void Ch4120N_MD5_HASH_CRACKER::print_banner()
 {
-    cout << color_code(Color::FG_BRIGHT_RED) << "  ___  _   _  __  __  ____   ___   ___  ____    __    ___  _  _  ____  ____ \n";
+    cout << color_red() << "  ___  _   _  __  __  ____   ___   ___  ____    __    ___  _  _  ____  ____ \n";
     cout << " / __)( )_( )(  \\/  )(  _ \\ | __) / __)(  _ \\  /__\\  / __)( )/ )( ___)(  _ \\\n";
     cout << "( (__  ) _ (  )    (  )(_) )|__ \\( (__  )   / /(__)\\( (__  )  (  )__)  )   /\n";
     cout << " \\___)(_) (_)(_/\\/\\_)(____/ (___/ \\___)(_)\\_)(__)(__)\\___)(_)\\_)(____)(_)\\_)\n\n";
-    cout << color_code(Color::FG_BRIGHT_GREEN) << "                         POWERED BY Ch4120N" << endl;
-    cout << color_code(Color::FG_BRIGHT_WHITE) << "                     MULTI-THREADED EDITION v2.0" << endl;
-    cout << color_code(Color::FG_BRIGHT_BLUE) << "                     https://GitHub.com/Ch4120N" << endl;
+    cout << color_green() << "                         POWERED BY Ch4120N" << endl;
+    cout << color_bwhite() << "                     MULTI-THREADED EDITION v2.0" << endl;
+    cout << color_blue() << "                     https://GitHub.com/Ch4120N" << endl;
     cout << endl
-         << color_code(Color::RESET);
+         << reset();
 }
 
 void Ch4120N_MD5_HASH_CRACKER::usage()
@@ -593,7 +593,7 @@ void Ch4120N_MD5_HASH_CRACKER::usage()
     // cout << " #                                                                           #\n";
     // cout << " #############################################################################\n";
 
-    cout << color_code(Color::FG_WHITE) << " USAGE: ./chMd5Cracker <setChar> <minChar> <maxChar> <hashMD5>\n\n";
+    cout << color_white() << " USAGE: ./chMd5Cracker <setChar> <minChar> <maxChar> <hashMD5>\n\n";
     cout << " CHARACTER SET OPTIONS:\n";
     cout << "\ta\t- Lowercase letters\t| a, b, c, ..., z\n";
     cout << "\tA\t- Uppercase letters\t| A, B, C, ..., Z\n";
@@ -611,7 +611,7 @@ void Ch4120N_MD5_HASH_CRACKER::usage()
     cout << "\t- Estimated speed: 500K-2M hashes/sec (depending on CPU)\n";
     cout << "\t- Quick Tip: Combine character sets for better results (e.g., 'aAn' for alphanumeric)\n";
     cout << "\t- Press Ctrl+C to Stop the opration!\n"
-         << color_code(Color::RESET);
+         << reset();
 
     exit(1);
 }
@@ -619,9 +619,9 @@ void Ch4120N_MD5_HASH_CRACKER::usage()
 void Ch4120N_MD5_HASH_CRACKER::print_verbose(const string &password, const string &hash_result,
                                              const string &target_hash, int hashes_per_sec)
 {
-    cout << ProgressMessage(color_code(Color::FG_WHITE) +
-                            target_hash + color_code(Color::FG_BRIGHT_MAGENTA) + " => " +
-                            color_code(Color::FG_BRIGHT_GREEN) + hash_result + color_code(Color::FG_BRIGHT_MAGENTA) +
-                            " => " + color_code(Color::FG_BRIGHT_GREEN) + password + color_code(Color::FG_WHITE) + " | Speed: " + color_code(Color::FG_BRIGHT_GREEN) + to_string(hashes_per_sec) + " hashes/sec.");
+    cout << ProgressMessage(color_white() +
+                            target_hash + color_magenta() + " => " +
+                            color_green() + hash_result + color_magenta() +
+                            " => " + color_green() + password + color_white() + " | Speed: " + color_green() + to_string(hashes_per_sec) + " hashes/sec.");
     cout.flush();
 }
