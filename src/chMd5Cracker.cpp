@@ -597,10 +597,10 @@ void Ch4120N_MD5_HASH_CRACKER::usage()
     cout << " CHARACTER SET OPTIONS:\n";
     cout << "\ta\t- Lowercase letters\t| a, b, c, ..., z\n";
     cout << "\tA\t- Uppercase letters\t| A, B, C, ..., Z\n";
-    cout << "\tn\t- Numbers\t| 0, 1, 2, ..., 9\n";
+    cout << "\tn\t- Numbers\t\t| 0, 1, 2, ..., 9\n";
     cout << "\ts\t- Special symbols\t| !, @, #, $, %, ...\n";
-    cout << "\tm\t- Mixed case\t| a-z, A-Z\n";
-    cout << "\tv\t- Verbose mode\t| Detailed progress\n\n";
+    cout << "\tm\t- Mixed case\t\t| a-z, A-Z\n";
+    cout << "\tv\t- Verbose mode\t\t| Detailed progress\n\n";
     cout << " EXAMPLES:\n";
     cout << "\tBasic (4-char lowercase + numbers):\n";
     cout << "\t    ./chMd5Cracker an 4 6 5f4dcc3b5aa765d61d8327deb882cf99\n\n";
