@@ -367,3 +367,8 @@ void Ch4120N_MD5_HASH_CRACKER::distribute_work(const string &charset, int length
         future.wait();
     }
 }
+
+void Ch4120N_MD5_HASH_CRACKER::crack(const string &charset, int length, const string &target_hash)
+{
+    distribute_work(charset, length, target_hash);
+}
