@@ -118,6 +118,25 @@ int main(int argc, char **argv)
 
 Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
 {
+    print_banner();
+
+    if (dbgtmr <= 0)
+    {
+        cout << FailMessage("Set dbgtmr to a value >=1 !") << endl;
+        return;
+    }
+
+    if (argc < 5)
+    {
+        usage();
+    }
+
+    vector<string> args;
+    for (int i = 1; i < argc; i++)
+    {
+        args.push_back(argv[i]);
+    }
+
     
 }
 
