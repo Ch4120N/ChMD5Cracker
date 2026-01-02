@@ -60,5 +60,8 @@ private:
     // Thread management
     unsigned int num_threads;
 
-    
+public:
+    Ch4120N_Md5_Hash_Cracker(int argc, char *argv[]);
+    ~Ch4120N_Md5_Hash_Cracker();
+
 };
