@@ -28,4 +28,9 @@
     #include <unistd.h>
 #endif
 
+#include "include/hash.h"
+#include "include/decorators.h"
+
+using namespace std;
+using namespace chrono;
 
