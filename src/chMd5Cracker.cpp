@@ -264,6 +264,12 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
             worker.join();
         }
     }
+
+    // Stop monitoring thread
+    if (monitor_thread.joinable())
+    {
+        monitor_thread.join();
+    }
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
