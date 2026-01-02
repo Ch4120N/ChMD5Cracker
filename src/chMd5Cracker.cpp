@@ -116,7 +116,7 @@ int main(int argc, char **argv)
     return 0;
 }
 
-unsigned int Ch4120N_Md5_Hash_Cracker::get_cpu_cores()
+unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
 {
     unsigned int cores = thread::hardware_concurrency();
 
@@ -151,5 +151,42 @@ unsigned int Ch4120N_Md5_Hash_Cracker::get_cpu_cores()
     else
     {
         return max(2u, cores); // At least 2 threads on low-end systems
+    }
+}
+
+void Ch4120N_MD5_HASH_CRACKER::init_thread_pool()
+{
+    num_threads = get_cpu_cores();
+    cout << InfoMessage("Initializing thread pool with " + to_string(num_threads) + " workers") << endl;
+    // cout << "[ * ] Initializing thread pool with " << num_threads << " workers" << endl;
+
+    // Start worker threads
+    for (unsigned int i = 0; i < num_threads; ++i)
+    {
+        workers.emplace_back([this, i]
+                             {
+            while (true) {
+                function<void()> task;
+                {
+                    unique_lock<mutex> lock(this->queue_mutex);
+                    this->condition.wait(lock, [this] {
+                        return this->stop_pool || !this->tasks.empty();
+                    });
+                    
+                    if (this->stop_pool && this->tasks.empty()) {
+                        return;
+                    }
+                    
+                    task = move(this->tasks.front());
+                    this->tasks.pop();
+                }
+                
+                task();
+                
+                // Check if password was found
+                if (password_found.load()) {
+                    return;
+                }
+            } });
     }
 }
