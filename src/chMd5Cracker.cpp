@@ -137,6 +137,35 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         args.push_back(argv[i]);
     }
 
+    string options = args[0];
+
+    if (options.find('v') != string::npos)
+    {
+        verbose_mode = true;
+    }
+
+    if (options.find('a') != string::npos)
+    {
+        charset += "abcdefghijklmnopqrstuvwxyz";
+    }
+    if (options.find('A') != string::npos)
+    {
+        charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (options.find('n') != string::npos)
+    {
+        charset += "0123456789";
+    }
+    if (options.find('s') != string::npos)
+    {
+        charset += "!\"$%&/()=?-.:\\*'-_:.;,";
+    }
+
+    if (options.find('m') != string::npos)
+    {
+        charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    }
+
     
 }
 
