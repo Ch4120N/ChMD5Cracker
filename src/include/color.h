@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 enum class Color
 {
@@ -48,4 +49,9 @@ enum class Color
     UNDERLINE = 4,
     REVERSED = 7
 };
+
+static std::string color_code(Color color)
+{
+    return "\033[" + std::to_string(static_cast<int>(color)) + "m";
+}
 
