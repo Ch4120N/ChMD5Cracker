@@ -211,6 +211,10 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         return;
     }
 
+    cout << InfoMessage("Selected charset for attack: '") << color_code(Color::FG_BRIGHT_GREEN) << charset << color_code(Color::FG_WHITE) << "'" << std::endl;
+    cout << InfoMessage("Target Hash: '") << color_code(Color::FG_BRIGHT_GREEN) << target_hash << color_code(Color::FG_WHITE) << "'" << std::endl;
+    cout << InfoMessage("Length range: ") << color_code(Color::FG_BRIGHT_GREEN) << min_len << color_code(Color::FG_WHITE) << " to " << color_code(Color::FG_BRIGHT_GREEN) << max_len << color_code(Color::FG_WHITE) << " characters" << std::endl;
+
     
 }
 
