@@ -182,6 +182,23 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
     {
         usage();
     }
+
+    try
+    {
+        min_len = stoi(args[1]);
+        max_len = stoi(args[2]);
+    }
+    catch (...)
+    {
+        usage();
+    }
+
+    if (min_len < 1 || max_len < min_len)
+    {
+        usage();
+    }
+
+    
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
