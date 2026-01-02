@@ -68,5 +68,12 @@ public:
     void usage();
     void print_verbose(const string &password, const string &hash_result, const string &target_hash, int hashes_per_sec);
     bool check_hash(const string &password, const string &target_hash, int thread_id);
+
+    // Thread pool methods
+    void init_thread_pool();
+    unsigned int get_cpu_cores();
+    template <class F>
+    auto enqueue(F &&f) -> future<decltype(f())>;
+
     
 };
