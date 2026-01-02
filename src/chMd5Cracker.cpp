@@ -190,3 +190,27 @@ void Ch4120N_MD5_HASH_CRACKER::init_thread_pool()
             } });
     }
 }
+
+template <class F>
+auto Ch4120N_MD5_HASH_CRACKER::enqueue(F &&f) -> future<decltype(f())>
+{
+    using return_type = decltype(f());
+
+    auto task = make_shared<packaged_task<return_type()>>(
+        bind(forward<F>(f)));
+
+    future<return_type> res = task->get_future();
+    {
+        lock_guard<mutex> lock(queue_mutex);
+        if (stop_pool)
+        {
+            throw runtime_error("enqueue on stopped ThreadPool");
+        }
+        tasks.emplace([task]()
+                      { (*task)(); });
+    }
+
+    condition.notify_one();
+    return res;
+}
+
