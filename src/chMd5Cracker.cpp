@@ -251,3 +251,38 @@ void Ch4120N_MD5_HASH_CRACKER::monitor_progress(const string &target_hash)
         }
     }
 }
+
+bool Ch4120N_MD5_HASH_CRACKER::check_hash(const string &password, const string &target_hash, int thread_id)
+{
+    // Calculate MD5 hash using thread-safe wrapper
+    string hash_result = thread_safe_md5.hash(password);
+
+    // Increment global counter
+    total_counter++;
+
+    // Check if hash matches
+    if (target_hash == hash_result && !password_found.load())
+    {
+        lock_guard<mutex> lock(found_mutex);
+        if (!password_found.load())
+        {
+            password_found.store(true);
+            found_password = password;
+            return true;
+        }
+    }
+
+    // Print verbose output if enabled
+    if (verbose_mode && total_counter % 1000 == 0) // Limit verbose output
+    {
+        auto current_time = steady_clock::now();
+        auto elapsed = duration_cast<seconds>(current_time - global_start_time).count();
+        if (elapsed > 0)
+        {
+            int hashes_per_sec = total_counter / elapsed;
+            print_verbose(password, hash_result, target_hash, hashes_per_sec);
+        }
+    }
+
+    return false;
+}
