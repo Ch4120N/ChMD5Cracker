@@ -103,3 +103,6 @@ public:
         return md5.hash(str);
     }
 };
+
+// Global thread-safe MD5 instance
+ThreadSafeMD5 thread_safe_md5;
