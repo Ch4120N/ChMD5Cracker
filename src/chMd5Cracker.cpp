@@ -219,6 +219,11 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
     init_thread_pool();
 
     global_start_time = steady_clock::now();
+
+    // Start monitoring thread
+    thread monitor_thread(&Ch4120N_Md5_Hash_Cracker::monitor_progress, this, target_hash);
+
+    
 }
 
     unsigned int Ch4120N_MD5_HASH_CRACKER::get_cpu_cores()
