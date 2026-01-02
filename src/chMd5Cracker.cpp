@@ -166,6 +166,18 @@ Ch4120N_MD5_HASH_CRACKER::Ch4120N_MD5_HASH_CRACKER(int argc, char *argv[])
         charset += "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     }
 
+    string clean_charset;
+    unordered_set<char> seen;
+    for (char c : charset)
+    {
+        if (seen.insert(c).second)
+        { // insert returns true if element was new
+            clean_charset += c;
+        }
+    }
+
+    charset = std::move(clean_charset);
+
     
 }
 
