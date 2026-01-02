@@ -286,3 +286,43 @@ bool Ch4120N_MD5_HASH_CRACKER::check_hash(const string &password, const string &
 
     return false;
 }
+
+void Ch4120N_MD5_HASH_CRACKER::generate_combinations_range(const string &charset, string &current, int length,
+                                                           int pos, const string &target_hash, int thread_id,
+                                                           size_t start_char, size_t end_char)
+{
+    if (password_found.load())
+        return;
+
+    if (pos == length)
+    {
+        if (check_hash(current, target_hash, thread_id))
+        {
+            return;
+        }
+        return;
+    }
+
+    // For the first position, only iterate through assigned character range
+    if (pos == 0)
+    {
+        for (size_t i = start_char; i < end_char && !password_found.load(); ++i)
+        {
+            current[pos] = charset[i];
+            generate_combinations_range(charset, current, length, pos + 1, target_hash,
+                                        thread_id, 0, charset.size());
+        }
+    }
+    else
+    {
+        // For subsequent positions, iterate through all characters
+        for (char c : charset)
+        {
+            if (password_found.load())
+                return;
+            current[pos] = c;
+            generate_combinations_range(charset, current, length, pos + 1, target_hash,
+                                        thread_id, 0, charset.size());
+        }
+    }
+}
