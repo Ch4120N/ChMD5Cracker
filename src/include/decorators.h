@@ -24,3 +24,8 @@ std::string DoubleWarningMessage(const std::string RequestMessage, Color color =
 {
     return color_code(Color::FG_YELLOW) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "!" + color_code(Color::FG_YELLOW) + " ] " + color_code(color) + RequestMessage + color_code(Color::FG_YELLOW) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "!" + color_code(Color::FG_YELLOW) + " ] " + color_code(Color::RESET);
 }
+
+std::string TipMessage(const std::string RequestMessage, Color color = Color::FG_WHITE)
+{
+    return color_code(Color::FG_BRIGHT_MAGENTA) + " [ " + color_code(Color::FG_BRIGHT_WHITE) + "!" + color_code(Color::FG_BRIGHT_MAGENTA) + " ] " + color_code(color) + RequestMessage + color_code(Color::RESET);
+}
