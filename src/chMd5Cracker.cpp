@@ -106,3 +106,13 @@ public:
 
 // Global thread-safe MD5 instance
 ThreadSafeMD5 thread_safe_md5;
+
+int main(int argc, char **argv)
+{
+#ifdef _WIN32
+    enableColors();
+#endif
+    Ch4120N_MD5_HASH_CRACKER app(argc, argv);
+    return 0;
+}
+
