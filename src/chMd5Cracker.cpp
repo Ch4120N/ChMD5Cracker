@@ -34,3 +34,7 @@
 using namespace std;
 using namespace chrono;
 
+
+class Ch4120N_MD5_HASH_CRACKER{
+    
+};
