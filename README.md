@@ -329,3 +329,11 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
+## 🙏 Acknowledgments
+- **MD5 Algorithm**: Based on RSA Data Security, Inc. MD5 Message-Digest Algorithm
+- **Threading Model**: Inspired by modern C++ concurrency patterns
+- **Color Output**: Cross-platform ANSI escape sequence implementation
+- **Build System**: Professional CMake configuration for multi-platform support
+
+---
+
