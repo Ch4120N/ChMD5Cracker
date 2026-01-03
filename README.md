@@ -24,3 +24,9 @@
 
 > **Ch4120N** — [Ch4120N@Proton.me](mailto:Ch4120N@Proton.me)
 
+---
+## 🧠 Made For
+
+> **Security professionals** and **penetration testers** who require a powerful **MD5 hash cracker** with **intelligent workload distribution** for **authorized security audits**, **forensic analysis**, and **password recovery**.
+
+---
