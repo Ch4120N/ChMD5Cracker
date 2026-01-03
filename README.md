@@ -137,7 +137,7 @@ cmake --build .
 
 Method 2: **Using Pre-built Binaries**
 
-Check the [Releases]() page for **pre-compiled** binaries for your platform.
+Check the [Releases](https://github.com/Ch4120N/ChMD5Cracker/releases/latest) page for **pre-compiled** binaries for your platform.
 
 ### Basic Usage
 ```bash
