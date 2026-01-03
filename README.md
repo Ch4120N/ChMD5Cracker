@@ -4,7 +4,7 @@
 
 <div align="center">
 
-# ChMD5Cracker
+# **Ch4120N MD5 Hash Cracker**
 ### _**Multi-Threaded MD5 Hash Cracker with Smart Distribution**_
 
 ![Language](https://img.shields.io/badge/Language-C++_v17-purple?style=for-the-badge)
@@ -14,7 +14,8 @@
 
 ---
 
-> A high-performance, cross-platform MD5 hash cracking tool with multi-threading support and intelligent workload distribution.
+> **Ch4120N MD5 Hash Cracker** is a powerful, high-performance, cross-platform MD5 hash cracking tool with multi-threading support and intelligent workload distribution.
 
 </div>
 
+---
