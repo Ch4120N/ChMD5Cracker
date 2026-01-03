@@ -337,3 +337,10 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
+## 🚨 Reporting Issues
+
+> If you encounter bugs, configuration issues, or unexpected behavior, please reach out:
+> 📩 **Ch4120N@Proton.me**
+
+---
+
