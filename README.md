@@ -118,3 +118,58 @@ cmake .. -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON
 ```
 
 ---
+
+### 🚀 Quick Start
+### Installation
+Method 1: **From Source** (**Recommended**)
+```bash
+# Clone the repository
+git clone https://github.com/Ch4120N/ChMD5Cracker.git
+cd ChMD5Cracker
+
+# Build the project
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+cmake --build .
+
+# The executable will be available at build/bin/chMd5Cracker
+```
+
+Method 2: **Using Pre-built Binaries**
+
+Check the [Releases]() page for **pre-compiled** binaries for your platform.
+
+### Basic Usage
+```bash
+./chMd5Cracker <character_set> <min_length> <max_length> <target_hash>
+```
+
+#### Example Commands
+```bash
+# Crack a 4-6 character alphanumeric password
+./chMd5Cracker aAn 4 6 5f4dcc3b5aa765d61d8327deb882cf99
+
+# Crack with verbose output (shows all attempts)
+./chMd5Cracker aAnsv 1 8 e99a18c428cb38d5f260853678922e03
+
+# Full character set brute-force
+./chMd5Cracker aAnsv 1 6 098f6bcd4621d373cade4e832627b4f6
+```
+
+### 📖 Character Set Options
+<div align="center">
+
+| **Option** | **Description** | **Characters Included** |
+|--------|-------------|----------------------|
+| `a`| Lowercase letters | `abcdefghijklmnopqrstuvwxyz` |
+| `A` | Uppercase letters	 | `ABCDEFGHIJKLMNOPQRSTUVWXYZ` |
+| `n` | Numbers | `0123456789` |
+| `s` | Special symbols | `!"$%&/()=?-.:\*'-_:.;,` |
+| `m` | Mixed case (equivalent to aA) | Both lowercase and uppercase |
+| `v` | Verbose mode | Enables detailed output |
+
+</div>
+
+**Note**: Character sets are automatically de-duplicated. Combining a and m won't create duplicates.
+
+---
