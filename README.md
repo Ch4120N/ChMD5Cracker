@@ -61,3 +61,11 @@
 - **Clean Architecture**: Well-structured object-oriented design with proper RAII
 
 ---
+
+## 💻 Supported Platforms
+
+- [x] **Linux** (All distributions)
+- [x] **Windows** (10+)
+- [x] **macOS** (All versions)
+
+---
