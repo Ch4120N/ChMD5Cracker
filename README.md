@@ -231,3 +231,47 @@ ChMD5Cracker/
 
 ---
 
+## 🎨 User Interface
+### Color Scheme
+- **Red**: Banners and important warnings
+- **Green**: Success messages and found passwords
+- **Blue**: Information and headers
+- **Cyan**: Progress indicators
+- **Magenta**: Hash comparisons
+- **White**: Regular output
+
+### Real-time Display
+```
+Speed: 1,250,342 hashes/sec | Total: 45 secs
+```
+
+### Completion Output
+```
+PASSWORD CRACKED SUCCESSFULLY!
+Target Hash: 5f4dcc3b5aa765d61d8327deb882cf99
+Password: password123
+Time elapsed: 67 seconds
+```
+
+## ⚠️ Legal & Ethical Usage
+### Intended Purpose
+This tool is designed for:
+- Password recovery for legitimate system access
+- Security auditing and penetration testing (with proper authorization)
+- Educational purposes in cryptography and security courses
+- Testing password strength in controlled environments
+
+### Legal Restrictions
+- **Never use this tool on systems you don't own or have explicit permission to test9**
+- **Respect privacy laws and regulations** (GDPR, CCPA, etc.)
+- **Use only for ethical security testing** with written authorization
+- **The developer is not responsible for misuse or illegal activities**
+
+### Responsible Disclosure
+If you discover vulnerabilities in systems using this tool:
+1. Stop testing immediately
+2. Document your findings
+3. Report to the system owner through proper channels
+4. Do not disclose publicly until patched
+
+---
