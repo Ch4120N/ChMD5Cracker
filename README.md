@@ -344,3 +344,16 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
+<div align="center">
+
+"Through the rivers of cryptographic challenges, Ch4120N ferries your password recovery needs."
+
+**⭐ If you like this project, don't forget to give it a star!**
+
+[![GitHub stars](https://img.shields.io/github/stars/Ch4120N/ChMD5Cracker.svg?style=social&label=Star)](https://github.com/Ch4120N/ChMD5Cracker)
+[![GitHub forks](https://img.shields.io/github/forks/Ch4120N/ChMD5Cracker.svg?style=social&label=Fork)](https://github.com/Ch4120N/ChMD5Cracker)
+
+**Made with ❤️ by Ch4120N**
+
+</div>
+
