@@ -69,3 +69,52 @@
 - [x] **macOS** (All versions)
 
 ---
+
+## 🛠️ Build Instructions
+### Prerequisites
+- **C++17 compatible compiler** (g++ 8+, clang 7+, MSVC 2019+)
+- **CMake 3.16+**
+- **Git** (for cloning)
+
+### Platform-Specific Builds
+#### **Windows (MSVC)**
+```cmd
+mkdir build && cd build
+cmake .. -G "Visual Studio 16 2019" -DUSE_MSVC=ON
+cmake --build . --config Release
+```
+
+#### **Windows (MinGW)**
+```cmd
+mkdir build && cd build
+cmake .. -G "MinGW Makefiles" -DUSE_MINGW=ON
+mingw32-make
+```
+
+#### **Linux**
+```bash
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+```
+
+#### **MacOSX**
+```bash
+mkdir build && cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j$(sysctl -n hw.ncpu)
+```
+
+#### **Advanced Build Options**
+```bash
+# Enable verbose mode compilation
+cmake .. -DCMAKE_VERBOSE_MAKEFILE=ON
+
+# Build with clang
+cmake .. -DCMAKE_CXX_COMPILER=clang++
+
+# Enable address sanitizer (debug builds)
+cmake .. -DCMAKE_BUILD_TYPE=Debug -DENABLE_ASAN=ON
+```
+
+---
