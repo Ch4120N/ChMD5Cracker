@@ -42,3 +42,22 @@
 </div>
 
 ---
+## ✨ Features
+### ⚡ Performance & Efficiency
+- **Multi-threading**: Automatically detects CPU cores and utilizes all available threads
+- **Optimized Work Distribution**: Intelligent task partitioning for maximum throughput
+- **Real-time Progress Monitoring**: Live hash rate display and progress tracking
+- **High-Speed Cracking**: Capable of processing millions of hashes per second
+### 🎯 Advanced Capabilities
+- **Custom Character Sets**: Flexible charset configuration with elimination of duplicates
+- **Variable Password Length**: Support for minimum and maximum password lengths
+- **Verbose Mode**: Detailed real-time output for debugging and analysis
+- **Color-coded Output**: Beautiful terminal interface with cross-platform color support
+- **Thread-Safe Operations**: Safe concurrent hash computation and state management
+### 🔧 Technical Excellence
+- **Cross-Platform**: Native support for Windows (MSVC/MinGW), Linux, and macOS
+- **Modern C++17**: Leverages latest C++ features for optimal performance
+- **Professional Build System**: CMake-based with proper dependency management
+- **Clean Architecture**: Well-structured object-oriented design with proper RAII
+
+---
