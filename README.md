@@ -275,3 +275,26 @@ If you discover vulnerabilities in systems using this tool:
 4. Do not disclose publicly until patched
 
 ---
+
+## 🆘 Troubleshooting
+| **Issue** | **Solution** |
+|-------------------|----------------------|
+| "No targets specified and no makefile found" | Delete `build/` directory and regenerate with proper generator |
+| Colors not displaying on Windows | Tool automatically enables ANSI escape codes on Windows 10+ |
+| Low performance | Ensure system power settings are on "High Performance" |
+| Memory usage high with large charsets | Consider using smaller character sets or shorter max lengths |
+
+### Debug Mode
+```bash
+# Enable verbose compilation
+cmake .. -DCMAKE_VERBOSE_MAKEFILE=ON
+
+# Run with gdb (Linux/macOS)
+gdb --args ./chMd5Cracker a 1 4 5f4dcc3b5aa765d61d8327deb882cf99
+
+# Check system compatibility
+./chMd5Cracker
+```
+
+---
+
