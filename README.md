@@ -212,3 +212,22 @@ ChMD5Cracker/
 
 ---
 
+## 🔍 Technical Details
+### Thread Pool Implementation
+- **Dynamic Worker Allocation**: Automatically scales based on CPU cores
+- **Task Queue System**: Efficient work distribution with load balancing
+- **Thread Safety**: Proper synchronization with mutexes and atomic operations
+- **Graceful Shutdown**: Clean termination on completion or interrupt
+
+### MD5 Hash Algorithm
+- **Optimized Computation**: Fast hash generation with minimal overhead
+- **Thread-Safe Wrapper**: ThreadSafeMD5 class for concurrent operations
+- **Standard Compliant**: Produces RFC 1321 compliant MD5 hashes
+
+### Character Generation
+- **Recursive Backtracking**: Efficient combination generation
+- **Range Partitioning**: Distributed first-character approach
+- **Early Termination**: Immediate stop on password discovery
+
+---
+
