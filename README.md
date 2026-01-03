@@ -174,8 +174,6 @@ Check the [Releases]() page for **pre-compiled** binaries for your platform.
 
 ---
 
----
-
 ## 📊 Performance Metrics
 <div align="center">
 
@@ -191,3 +189,26 @@ Check the [Releases]() page for **pre-compiled** binaries for your platform.
 </div>
 
 ---
+
+## 🏗️ Project Structure
+```
+ChMD5Cracker/
+├── src/
+│   ├── chMd5Cracker.cpp      # Main application source
+│   └── include/              # Header files
+│       ├── hash.h            # MD5 hashing implementation
+│       ├── color.h           # Cross-platform color utilities
+│       └── decorators.h      # Output formatting utilities
+├── CMakeLists.txt            # Cross-platform build configuration
+├── LICENSE                   # MIT License
+└── README.md                 # This file
+```
+### Core Components
+1. `Ch4120N_MD5_HASH_CRACKER` **Class** - Main application controller
+2. **Thread Pool System** - Dynamic thread management and task distribution
+3. **MD5 Hash Engine** - Optimized hash computation with thread safety
+4. **Progress Monitor** - Real-time performance tracking
+5. **Console Interface** - Cross-platform color and formatting
+
+---
+
