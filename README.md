@@ -298,3 +298,17 @@ gdb --args ./chMd5Cracker a 1 4 5f4dcc3b5aa765d61d8327deb882cf99
 
 ---
 
+## ❤️ Support the Project
+
+If you find this tool useful, consider donating:
+
+| Cryptocurrency | Address                                      |
+| :------------- | :------------------------------------------- |
+| **BTC**        | `bc1ql4syps7qpa3djqrxwht3g66tldyh4j7qsyjkq0` |
+| **ETH**        | `0xfddbd535a4ad28792cbebceee3d6982d774e6d13` |
+| **USDT**       | `3Cq6HRQsiwZFmPEQfG9eJkZE2QGChvf2VN`         |
+
+> 💖 Your support helps keep the project alive and improving!
+
+---
+
